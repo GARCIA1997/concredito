@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.5 4L6 8.5L10.5 4" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+=======
+<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 4L6.5 8.5L11 4" stroke="#535D6E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+>>>>>>> 7e491da (David Padilla --Caso activo modal)
+=======
+<svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.5 4L6 8.5L10.5 4" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+>>>>>>> 2acafe7 (David Padila --concreditos y marcadores en mapa)
+=======
+<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 4L6.5 8.5L11 4" stroke="#535D6E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+>>>>>>> 7e491da (David Padilla --Caso activo modal)
+=======
+<svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.5 4L6 8.5L10.5 4" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+>>>>>>> 2acafe7 (David Padila --concreditos y marcadores en mapa)
+</svg>

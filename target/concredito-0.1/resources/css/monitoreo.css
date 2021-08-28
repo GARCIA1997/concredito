@@ -1,0 +1,860 @@
+:root {
+    --state-red: #FE0000;
+    --state-orange: #F5A623;
+    --state-green: #2DD1AC;
+    --white: #ffffff;
+    --text-default: #3F474F;
+    /* DARK */
+    --dark-900: #363F4D;
+    --dark-800: #444E5E;
+    --dark-700: #4D5461;
+    --dark-600: #535D6E;
+    --dark-500: #808C9E;
+    --dark-400: #8F9DB4;
+    --dark-300: #A9B1BE;
+    --dark-200: #AFB8C5;
+    --dark-100: #D8DEE6;
+    /* GRAY */
+    --gray-500: #A3A7AD;
+    --gray-400: #C7C8CA;
+    --gray-300: #D9DCE2;
+    --gray-200: #E8E9EA;
+    --gray-100: #F2F3F6;
+    --gray-50: #F7F7F8;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-maestro {
+    position: absolute;
+    top: 6rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    height: calc(100% - 83px);
+    width: 38rem;
+    left: -35%;
+    left: 0;
+    transition: all 500ms;
+    gap: 1rem;
+}
+
+.casos {
+    background-color: var(--white);
+    border-radius: 1rem;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    height: 100%;
+    height: fill-available;
+    width: 100%;
+    right: 0;
+    box-shadow: 2px 2px 8px rgb(54 63 77 / 20%);
+    transition: all 500ms;
+}
+
+.master-buttons {
+    gap: 1rem;
+}
+
+.master-buttons .boton {
+    width: 50%;
+    height: calc(4.8rem - 3rem);
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem;
+    box-shadow: 2px 2px 8px rgb(54 63 77 / 20%);
+}
+
+.master-buttons .boton p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.historial {
+    background-color: var(--white);
+    justify-content: space-between;
+}
+
+.historial p {
+    color: var(--dark-600);
+}
+
+.crear-caso {
+    background-color: #F7F7F8;
+}
+
+.crear-caso p {
+    color: var(--white);
+}
+
+.buscar-casos {
+    gap: 1rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.search-bar {
+    position: relative;
+    padding: 1.3rem!important;
+    padding-left: 4.5rem!important;
+    border: 1px solid #A9B1BE!important;
+    border-radius: 0.5rem!important;
+    width: calc(75% - 5.8rem)!important;
+    transition: all 300ms!important;
+    font-size: 1.5rem!important;
+    color: var(--dark800)!important;
+}
+
+.search-bar::placeholder {
+    font-size: 1.5rem;
+    color: var(--dark-300);
+}
+
+.search-bar:focus {
+    border: 1.5px solid #F7F7F8!important;
+}
+
+.search-icon {
+    position: absolute;
+    top: 23px;
+    left: 23px;
+    filter: invert(74%) sepia(5%) saturate(658%) hue-rotate(178deg) brightness(94%) contrast(94%);
+    transition: all 300ms;
+}
+
+.search-bar:focus~img {
+    filter: invert(31%) sepia(83%) saturate(2633%) hue-rotate(198deg) brightness(104%) contrast(107%);
+}
+
+.select-filtros {
+    width: 25%;
+    gap: 1.4rem;
+    padding: 1.3rem 1rem;
+    border-radius: 0.6rem;
+    border: 1px solid #D8DEE6;
+    font-size: 1.6rem;
+    color: var(--dark-600);
+}
+
+.caso {
+    padding: 1rem;
+    justify-content: space-between;
+    background-color: var(--white);
+    transition: all 300ms;
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer;
+}
+
+.casos-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem;
+    border-radius: 4rem;
+    font-size: 1.3rem;
+    color: var(--white);
+    font-weight: 500;
+    min-width: calc(2.2rem - 0.7rem);
+}
+
+.caso>div {
+    gap: 1.1rem;
+}
+
+.caso-text {
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.caso-name {
+    font-size: 1.5rem;
+    color: var(--dark-800);
+    font-weight: 400;
+}
+
+.caso-info {
+    gap: 0.5rem;
+    align-items: flex-end;
+}
+
+.caso-state {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #4D9FFF;
+}
+
+.caso-fecha {
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--dark-400);
+}
+
+.caso:hover {
+    background-color: var(--gray-50);
+}
+
+.case-active {
+    background-color: var(--gray-50);
+}
+
+.case-active .caso-detalles {
+    background-color: #15AE00;
+    color: var(--white);
+}
+
+.caso-detalles {
+    height: fit-content;
+    padding: 0.7rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.5rem;
+    color: #15AE00;
+}
+
+.caso:hover .caso-detalles {
+    background-color: #15AE00;
+    color: var(--white);
+}
+
+.filter-modal {
+    display: none;
+    z-index: 5;
+    position: absolute;
+    top: 6rem;
+    right: -11rem;
+    width: 22rem;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    /* transition: all 300ms; */
+}
+
+.transparent-blur {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.filter-title {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--dark-800);
+}
+
+.filter-container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+.filter {
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.filter p {
+    font-size: 1.5rem;
+    color: var(--dark-800);
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+}
+
+.lecturas {
+    position: absolute;
+    top: 6.3rem;
+    right: 0;
+    margin: 2rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: var(--white);
+    gap: 0.8rem;
+    box-shadow: 2px 2px 8px rgba(54, 63, 77, 0.2);
+    transition: all 500ms;
+}
+
+.lecturas>div {
+    gap: 0.8rem;
+}
+
+.lecturas>div>p {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--dark-800);
+}
+
+.lecturas>p {
+    font-size: 1.4rem;
+    color: var(--dark-300);
+}
+
+.lecturas>p>span {
+    color: #F7F7F8;
+}
+
+.vehicle {
+    position: absolute;
+    bottom: 0;
+    border-radius: 0.5rem;
+    right: -40%;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background-color: var(--white);
+    gap: 3rem;
+    box-shadow: 2px 2px 8px rgba(54, 63, 77, 0.2);
+    transition: all 500ms;
+}
+
+.car-data {
+    gap: 0.8rem;
+}
+
+.data-type {
+    font-size: 1.3rem;
+    color: var(--dark-500);
+    font-weight: 500;
+}
+
+.data-value {
+    font-size: 1.5rem;
+    color: var(--dark-600);
+}
+
+.vehicle-type {
+    padding: 0.5rem;
+    gap: 0.8rem;
+    border-radius: 0.3rem;
+    background-color: #F7F7F8;
+}
+
+.vehicle-type p {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+
+/* SEGUNDA VISTA DE LA PARTE DE MONITOREO */
+
+.modal-case-container {
+    position: absolute;
+    top: 6rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    height: calc(100% - 83px);
+    width: 54rem;
+    left: -70rem;
+    transition: all 500ms;
+    gap: 1rem;
+    z-index: 3;
+}
+
+.modal-case {
+    background-color: var(--white);
+    border-radius: 1rem;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    height: fill-available;
+    width: 100%;
+    box-shadow: 2px 2px 8px rgb(54 63 77 / 20%);
+    transition: all 500ms;
+}
+
+.case-info {
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+.case-info .caso-text {
+    width: 29%;
+}
+
+.case-type {
+    padding: 8px 15px 8px 6px;
+    background-color: var(--state-red);
+    border-radius: 0.5rem;
+    gap: 1rem;
+}
+
+.case-type p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--white);
+}
+
+.action-content {
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+.specs {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: var(--gray-50);
+    justify-content: space-between;
+}
+
+.specs .data-type {
+    font-size: 1.4rem;
+    color: var(--dark-800);
+}
+
+.gallery {
+    gap: 1rem;
+}
+
+.case-input {
+    justify-content: space-between;
+    padding: 0 0.8rem;
+    position: relative;
+}
+
+.case-state-drop {
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--dark-100);
+    gap: 1rem;
+}
+
+.case-state-drop p {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.case-state-drop img {
+    transition: all 300ms;
+}
+
+.img-pendiente {
+    filter: invert(91%) sepia(23%) saturate(6820%) hue-rotate(337deg) brightness(95%) contrast(102%);
+}
+
+.img-validacion {
+    filter: invert(51%) sepia(98%) saturate(5445%) hue-rotate(197deg) brightness(103%) contrast(107%);
+}
+
+.img-cerrado {
+    display: none;
+}
+
+.pendiente {
+    color: orange;
+}
+
+.validacion {
+    color: #F7F7F8;
+}
+
+.cerrado {
+    color: var(--state-red);
+}
+
+.case-select-state {
+    top: 1px;
+    left: 8px;
+    z-index: 5;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    width: 16rem;
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.case-select-state div {
+    cursor: pointer;
+    padding: 1rem;
+    transition: all 300ms;
+}
+
+.case-select-state div:hover {
+    background-color: var(--gray-100);
+}
+
+.case-select-state p {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.case-closed {
+    background-color: var(--gray-50);
+}
+
+.case-closed p {
+    color: var(--state-red);
+}
+
+.caso-cerrado {
+    display: none;
+    font-size: 1.7rem;
+    line-height: 4rem;
+    color: var(--dark-800);
+    font-weight: 700;
+}
+
+.nueva-entrada {
+    padding: 1rem 1.2rem;
+    border: 1px solid #F7F7F8;
+    color: #F7F7F8;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.nueva-entrada:hover {
+    color: var(--white);
+    background-color: #F7F7F8;
+}
+
+.crear-entrada {
+    position: absolute;
+    top: 40%;
+    left: calc(50% - 30rem);
+    background-color: var(--white);
+    border-radius: 1rem;
+    z-index: 5;
+    width: 60rem;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.modal-head {
+    padding: 1.4rem 2rem;
+    justify-content: space-between;
+}
+
+.modal-head p {
+    font-size: 1.9rem;
+    line-height: 2.2rem;
+    color: var(--dark-800);
+    font-weight: 500;
+}
+
+.modal-body {
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+.comment {
+    position: relative;
+}
+
+.comment,
+.file-container {
+    width: 100%;
+}
+
+.comment input {
+    transition: all 300ms;
+    padding: 1.4rem 1.2rem;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: var(--dark-800);
+    border: 1px solid var(--dark-300);
+    border-radius: 0.4rem;
+    width: calc(100% - 2.4rem);
+}
+
+.comment input::placeholder {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: var(--dark-400);
+}
+
+.comment input:focus {
+    border-color: #F7F7F8;
+}
+
+.comment label {
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+    color: var(--dark-400);
+    font-weight: 700;
+    position: absolute;
+    top: -1.8rem;
+    left: 0;
+}
+
+.file-container {
+    gap: 0.5rem;
+}
+
+.file-container div {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--gray-50);
+}
+
+.file-container div img {
+    cursor: pointer;
+}
+
+.file-container div p {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: #1A75CF;
+}
+
+.modal-footer {
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.modal-footer div {
+    gap: 1rem;
+}
+
+.createButton {
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    background-color: #F7F7F8;
+    color: var(--white);
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+}
+
+#entradaBlur {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    display: none;
+    background-color: rgba(54, 63, 77, 0.4)
+}
+
+.image-modal {
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    display: none;
+}
+
+.image-modal>img,
+.image-modal>div {
+    pointer-events: all;
+}
+
+.img-modal-header {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #363F4D 0%, rgba(54, 63, 77, 0.367853) 73.31%, rgba(54, 63, 77, 0) 100%);
+}
+
+.img-modal-header p {
+    line-height: 2.2rem;
+    font-size: 1.9rem;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.selectedImage {
+    width: 35%;
+}
+
+.modal-gallery {
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.modal-gallery img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 3px solid var(--dark-300);
+}
+
+#imgModalBlur {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    display: none;
+    background-color: rgba(54, 63, 77, 0.8);
+}
+
+.back {
+    padding: 1rem 1.6rem 1rem 0.6rem;
+    border-radius: 0 6rem 6rem 0;
+    background-color: var(--gray-50);
+    box-shadow: 2px 2px 8px rgb(54 63 77 / 20%);
+    position: absolute;
+    top: 2rem;
+    right: -10.9rem;
+    z-index: -1;
+}
+
+.caso-update {
+    justify-content: space-between;
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid var(--dark-100);
+    transition: all 300ms;
+}
+
+.caso-update:hover {
+    background-color: var(--gray-50);
+}
+
+.caso-update>div {
+    gap: 1rem;
+}
+
+.caso-update>div>div {
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.update-type {
+    padding: 2px;
+    color: var(--dark-500);
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    border-radius: 3px;
+    background-color: var(--gray-200);
+}
+
+.update-description {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: var(--dark-800);
+}
+
+.update-files {
+    gap: 0.4rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 1.75rem;
+    border: 1px solid var(--dark-100);
+    background-color: var(--white);
+}
+
+.update-files p {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: var(--dark-500);
+}
+
+.update-time {
+    text-align: right;
+    color: var(--dark-500);
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    min-width: 7.5rem;
+}
+
+.back p {
+    font-size: 1.6rem;
+    color: var(--dark-800);
+    line-height: 1.9rem;
+}
+
+.caso-historial {
+    border-radius: 0.5rem;
+    margin: 1.5rem;
+    position: absolute;
+    right: -35rem;
+    top: 6rem;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 22rem;
+    transition: all 500ms;
+}
+
+.pasPermi {
+    gap: 2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 3rem;
+    padding: 0.8rem 0.8rem 0.8rem 3rem;
+    background-color: #3F474F;
+    border-radius: 0.5rem;
+    cursor: default;
+}
+
+.pasPermi p {
+    font-size: 1.7rem;
+    color: var(--white);
+}
+
+
+/* HOVER DEL concredito  */
+
+.mapconcreditoInfo {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+    width: 32rem;
+}
+
+.concreditoUp {
+    padding: 1rem;
+    border-bottom: 1px solid var(--dark-100);
+    gap: 0.6rem;
+}
+
+.tipo-concredito {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    color: var(--dark-400);
+}
+
+.gm-style .gm-style-iw-c {
+    padding: 0!important;
+}
+
+.tipo-concredito .tipo-concredito-lec {
+    color: var(--dark-500);
+}
+
+.tipo-concredito .por-min {
+    color: var(--dark-300);
+}
+
+.concredito-text {
+    justify-content: space-between;
+}
+
+.concredito-text .base-state {
+    flex-basis: 7%;
+}
+
+.desc-concredito {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    color: var(--dark-700);
+}
+
+.concreditoDatos {
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.mapconcreditoCoords {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: var(--dark-400);
+}
+
+.mapconcreditoCarril {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: var(--dark-700);
+}
