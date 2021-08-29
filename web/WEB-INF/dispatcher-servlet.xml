@@ -24,6 +24,12 @@
                 <prop key="iniciar_sesion.htm">InicioSesionController</prop>
                 <!--Prospecto Controller-->
                 <prop key="prospectos.htm">ProspectosController</prop>
+                <prop key="agregar_prospectos.htm">ProspectosController</prop>
+                <prop key="set_prospecto.htm">ProspectosController</prop>
+
+                <!--Upload Controller-->
+                <prop key="singleFileUpload.htm">UploadController</prop>
+                
 
             </props>
         </property>
@@ -39,5 +45,6 @@
     -->
    <bean name="InicioSesionController"      class="com.concredito.controller.InicioSesionController" />
    <bean name="ProspectosController"        class="com.concredito.controller.ProspectosController" />
+   <bean name="UploadController"            class="com.concredito.controller.UploadController" />
 
 </beans>

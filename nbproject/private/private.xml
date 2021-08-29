@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ISC_G/OneDrive/Documentos/NetBeansProjects/concredito/src/java/DAO/read/GetSession.java</file>
+            <file>file:/C:/Users/ISC_G/OneDrive/Documentos/NetBeansProjects/concredito/src/java/com/concredito/controller/ProspectosController.java</file>
+            <file>file:/C:/Users/ISC_G/OneDrive/Documentos/NetBeansProjects/concredito/web/WEB-INF/jsp/prospectos.jsp</file>
+            <file>file:/C:/Users/ISC_G/OneDrive/Documentos/NetBeansProjects/concredito/src/java/DAO/read/GetProspectos.java</file>
+            <file>file:/C:/Users/ISC_G/OneDrive/Documentos/NetBeansProjects/concredito/web/WEB-INF/jsp/templates/header.jsp</file>
         </group>
     </open-files>
 </project-private>
