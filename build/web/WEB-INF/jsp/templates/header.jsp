@@ -45,7 +45,7 @@
                                       </a>
                                     </li>
                                     <li>
-                                      <a href="#"  id="evaluar"  class="nav-link text-white text-center">
+                                      <a href="evaluar.htm"  id="evaluar"  class="nav-link text-white text-center">
                                         <i class="bi bi-speedometer d-block mx-auto mb-1" width="24" height="24"></i>
                                         Evaluar 
                                       </a>

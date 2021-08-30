@@ -10,7 +10,10 @@
     <br><br>
     <h1 class="text-center">Agregar Prospecto</h1>
     <br><br>
-    <form>
+    <div  class="alert alert-danger hidden fade out" role="alert" id="alerta">
+        
+    </div>
+    <form name="prospecto">
         <div class="row">
             <div class="col-md-4">
                 <label for="nombre" class="form-label">Nombre del prospecto</label>
@@ -44,16 +47,16 @@
             </div>
             <div class="col-md-3">
                 <label for="cp" class="form-label">C&oacute;digo Postal</label>
-                <input type="text" class="form-control" id="cp" aria-describedby="address">
+                <input  maxlength="5" type="text" class="form-control" id="cp" aria-describedby="address">
             </div>
        
             <div class="col-md-3">
                 <label for="tel" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="tel" aria-describedby="tel">
+                <input pattern="[1-9]{1}[0-9]{9}"  maxlength="10" type="text" class="form-control" id="tel" aria-describedby="tel">
             </div>
             <div class="col-md-3">
                 <label for="rfc" class="form-label">RFC</label>
-                <input type="text" class="form-control" id="rfc" aria-describedby="last_name">
+                <input type="text" maxlength="13" class="form-control" id="rfc" aria-describedby="last_name">
             </div>
         </div> 
         
@@ -81,8 +84,8 @@
         </div> 
         <div class="row justify-content-end">
             <div class="col-md-2 offset-md-10">
-                <button onclick="salirProspecto();" class="btn btn-danger">Salir</button>
-                <button onclick="setProspecto();"  class="btn btn-primary">Enviar</button>
+                <a href="prospectos.htm" onclick="salirProspecto();" class="btn btn-danger">Salir</a>
+                <a onclick="setProspecto();"  class="btn btn-primary">Enviar</a>
             </div>
         </div>
         

@@ -40,7 +40,6 @@ public class SetProspecto {
                         "       ?,\n" +
                         "       ?,\n" +
                         "       ?,\n" +
-                        "       ?,\n" +
                         "       ?\n";
                 if(prospecto.getDocumentos().isEmpty()){
                     sql     += ", NULL ";
@@ -71,6 +70,8 @@ public class SetProspecto {
                 CI++;
                 preparedStatement.setString(CI, prospecto.getApellido_materno());
             }
+                            System.out.println(preparedStatement);
+
         result = preparedStatement.executeUpdate();
 
         }catch (SQLException e){

@@ -47,7 +47,7 @@ public class InicioSesionController {
         
         //LLENAMOS una lista con el modelo de usuarios 
         System.out.println(connection.getConnection());
-        System.out.println("//-----------------------------//");
+     
         UsuariosModel usuariosModel = GetSession.getSession(connection.getConnection(), correo, password);
         
         //Cerrar conexión de la Base de Datos

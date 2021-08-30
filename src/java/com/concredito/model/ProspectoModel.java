@@ -22,11 +22,12 @@ public class ProspectoModel {
     private String rfc;
     private String documentos;
     private String status;
+    private String comentario;
 
     public ProspectoModel() {
     }
 
-    public ProspectoModel(int id, String nombre, String apellido_materno, String apellido_paterno, String calle, String numero, String colonia, String codigo_postal, String telefono, String rfc, String documentos, String status) {
+    public ProspectoModel(int id, String nombre, String apellido_materno, String apellido_paterno, String calle, String numero, String colonia, String codigo_postal, String telefono, String rfc, String documentos, String status, String comentario) {
         this.id = id;
         this.nombre = nombre;
         this.apellido_materno = apellido_materno;
@@ -39,6 +40,7 @@ public class ProspectoModel {
         this.rfc = rfc;
         this.documentos = documentos;
         this.status = status;
+        this.comentario = comentario;
     }
 
     public int getId() {
@@ -137,6 +139,13 @@ public class ProspectoModel {
         this.status = status;
     }
 
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
 
 
 }

@@ -17,8 +17,8 @@ import java.util.List;
  *
  * @author ISC_G
  */
-public class GetProspectos {
-    public static List<ProspectoModel>  getProspectos(Connection connection){
+public class GetProspectosEvaluar {
+     public static List<ProspectoModel>  getProspectos(Connection connection){
        List<ProspectoModel>  Prospectos = new ArrayList<>();
        try {
             String sql ="SELECT pr.id,\n" +
@@ -27,7 +27,8 @@ public class GetProspectos {
                         "    pr.apellido_materno,\n" +
                         "    es.nombre AS status\n" +
                         "   FROM dbconcredito.prospectos AS pr\n" +
-                        "   INNER JOIN dbconcredito.cat_estados AS es ON es.id = pr.estatus" ;
+                        "   INNER JOIN dbconcredito.cat_estados AS es ON es.id = pr.estatus\n" +
+                        "   WHERE pr.estatus = 'EN' " ;
                             
             PreparedStatement preparedStatement = connection.prepareStatement(sql); //Evitar inyeccion SQL
             ResultSet result = preparedStatement.executeQuery();

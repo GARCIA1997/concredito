@@ -26,6 +26,9 @@
                 <prop key="prospectos.htm">ProspectosController</prop>
                 <prop key="agregar_prospectos.htm">ProspectosController</prop>
                 <prop key="set_prospecto.htm">ProspectosController</prop>
+                <prop key="getDetalleProspecto.htm">ProspectosController</prop>
+                <prop key="evaluar.htm">ProspectosController</prop>
+                <prop key="update_prospecto.htm">ProspectosController</prop>
 
                 <!--Upload Controller-->
                 <prop key="singleFileUpload.htm">UploadController</prop>
