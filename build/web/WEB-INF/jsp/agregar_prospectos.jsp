@@ -13,7 +13,7 @@
     <div  class="alert alert-danger hidden fade out" role="alert" id="alerta">
         
     </div>
-    <form name="prospecto">
+    <form name="prospecto" id="prospecto">
         <div class="row">
             <div class="col-md-4">
                 <label for="nombre" class="form-label">Nombre del prospecto</label>
@@ -84,7 +84,9 @@
         </div> 
         <div class="row justify-content-end">
             <div class="col-md-2 offset-md-10">
-                <a href="prospectos.htm" onclick="salirProspecto();" class="btn btn-danger">Salir</a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#CerrarModal">
+                  Salir
+                </button>                
                 <a onclick="setProspecto();"  class="btn btn-primary">Enviar</a>
             </div>
         </div>
@@ -92,5 +94,23 @@
         
     </form>
     
+</div>
+<!-- Modal Paara salir  -->
+<div class="modal fade" id="CerrarModal" tabindex="-1" aria-labelledby="CerrarModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CerrarModalLabel">Salir de Agregar Prospecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <p>S&iacute; usted desea salir los cambios realizados aqu&iacute; no seran guardados</p>
+      </div>
+      <div class="modal-footer">
+        <a href="prospectos.htm" onclick="salirProspecto();" class="btn btn-danger">Salir</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>
 <%@include file="/WEB-INF/jsp/templates/footer.jsp" %>

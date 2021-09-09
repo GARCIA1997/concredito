@@ -102,9 +102,21 @@
                     <h5><span class="modalText" id="comentario"></span></h5>                   
                 </div>
             </div>
-            <div class="row">
-                Aqu&iacute; van los documentos
-            </div>
+            <div class="row justify-content-center" style="padding-top: 1.5rem;">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <table class="table table-striped" id="tableDocumentos">
+                        <thead>
+                            <tr>
+                                <th>Nombre del Documento</th>
+                                <th >Documento</th>
+                            </tr>
+                            <tbody id="tbodyDocuments">
+                                
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+            </div> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

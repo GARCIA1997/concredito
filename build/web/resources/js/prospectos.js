@@ -30,29 +30,7 @@ function agregarFila(){
     tr.appendChild(td2);
     tabla.appendChild(tr);
 }
-function addFile (id){
-    var id2= 'documento-'+id;
-    var id1= 'nombreDocumento-'+id;
-    console.log(id2);
-    console.log(id2.value);
-    $.ajax({
-        url: "singleFileUpload.htm",
-        method: "post",
-        enctype:"multipart/form-data",
-        data: {
-                nombre: document.getElementById(id1).value,
-                file:   document.getElementById(id2).value
-              }
-    }).done((res) => {
-        if (res == "505") {
-            console.log("error al cargar archivo")
-        } else if (res == "200") {
-            console.log("archivo cargado con exito")
-        } 
-    }).fail((jqXHR, textStatus) => {
-                console.log(textStatus, jqXHR);
-    });
-}
+
 window.addEventListener("load", function() {
     prospecto.cp.addEventListener("keypress", soloNumeros, false);
   });
@@ -96,9 +74,6 @@ function setProspecto (){
         message +="*Este no es un Rfc  valido";
         ban = false;
     }
-    
-
-    
 
     if (ban){
         console.log("hola mal")
@@ -116,7 +91,7 @@ function setProspecto (){
                     codigo_postal:      document.getElementById("cp").value,
                     telefono:           document.getElementById("tel").value,
                     rfc:                document.getElementById("rfc").value.trim().toUpperCase(),
-                    documentos:         document.getElementById("documento-1").value
+                    documentos:         crearJSON()
             }
         }).done((res) => {
             if (res === "500") {
@@ -159,6 +134,41 @@ function getDetalleProspecto(id){
             document.getElementById("comentario").innerHTML = data.comentario;
 
             //document.getElementById("documentos").innerHTML = data.documentos;
+            var jsonDocumentos = data.documentos;
+            var json =JSON.parse(jsonDocumentos);
+            for (x of json) {
+                var tabla=document.getElementById("tbodyDocuments");
+                console.log(x.nombre + ' ' + x.url);
+                var tr=document.createElement("tr");
+                var td1=document.createElement("td"); 
+                var td2=document.createElement("td")
+                var h5Documento =document.createElement("h5");
+                var aDocumento =document.createElement("a");
+                var h5Nombre =document.createElement("h5");
+                var spanDocumento =document.createElement("span");
+                var iDocumento =document.createElement("i");
+
+                var spanNombre =document.createElement("span");
+
+                spanNombre.setAttribute("class","modalText");
+                spanNombre.innerHTML = x.nombre;
+                spanDocumento.setAttribute("class","modalText");
+
+                iDocumento.setAttribute("class","bi bi-file-earmark-check");
+                aDocumento.setAttribute("href",x.url);
+                aDocumento.setAttribute("Target","_blank");
+
+                h5Nombre.appendChild(spanNombre);
+                td1.appendChild(h5Nombre);
+                spanDocumento.appendChild(iDocumento);
+                h5Documento.appendChild(spanDocumento)
+                aDocumento.appendChild(h5Documento)
+                td2.appendChild(aDocumento)
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tabla.appendChild(tr);
+
+            }
 
             if(data.status==='Rechazado'){
                 $("#divRechazado").css("display", "block");
@@ -300,4 +310,58 @@ function getDetalleProspectoEvaluar(id){
     }).fail((jqXHR, textStatus) => {
         console.log(textStatus, jqXHR);
     });
+}
+async function addFile(id) {
+    var ids = document.getElementById( 'documento-'+id);
+    var name = document.getElementById( 'nombreDocumento-'+id);
+    var file = ids.files[0];
+    let formData = new FormData(); 
+    formData.append("file", file);
+    formData.append("nombre",name);
+    var formulario=document.getElementById("prospecto");
+
+        $.ajax({
+            url: "singleFileUpload.htm",
+            method: "post", 
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+        }).done((res) => {
+            if(res){
+                var inputUrl =document.createElement("input");
+                inputUrl.setAttribute("type","text");
+                inputUrl.setAttribute("name","URL-"+id);
+                inputUrl.setAttribute("id","URL-"+id);
+                inputUrl.setAttribute("hidden", true);
+                inputUrl.setAttribute("value", res);
+                formulario.appendChild(inputUrl)
+            }
+        }).fail((jqXHR, textStatus) => {
+            console.log(textStatus, jqXHR);
+        });
+}
+function crearJSON(){
+    var jsonString = "["
+    const items = document.querySelectorAll('[id^="URL-"]');
+        items.forEach(function(item) {
+            var id = item.id.split('URL');
+            if(id.length>=2){
+
+                var nombre = document.getElementById("nombreDocumento"+id[1]);
+                var url = document.getElementById("URL"+id[1]);
+
+                if(url.value && nombre.value){
+                    jsonString += "{"
+                    jsonString += ' "nombre": "' +nombre.value + '",'
+                    jsonString += ' "url": "' +url.value + '"'
+                    jsonString += "},"
+                }
+            }
+        })
+        jsonString = jsonString.substring(0, jsonString.length -1);
+
+        jsonString += "]"
+
+        return jsonString
 }

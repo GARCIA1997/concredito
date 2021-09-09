@@ -74,7 +74,7 @@ public class ProspectosController {
         String codigo_postal    =   req.getParameter("codigo_postal");
         String telefono         =   req.getParameter("telefono");
         String rfc              =   req.getParameter("rfc");
-        String documentos       =   "";
+        String documentos       =   req.getParameter("documentos");
         String status           =   "EN";
         
         HttpSession session = req.getSession();        

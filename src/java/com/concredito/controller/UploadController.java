@@ -6,41 +6,33 @@
 package com.concredito.controller;
 
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.File;
 
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
  * @author ISC_G
  */
 public class UploadController {
-    private static String UPLOADED_FOLDER = "/web/resources/files//";
     
     //Metodo para validar el inicio de sesión
-    @PostMapping("singleFileUpload.htm")
-    public String singleFileUpload(@RequestParam("file") MultipartFile file,RedirectAttributes redirectAttributes) {
-         System.out.println(file);
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return  "504";
-         }
+    
+    @RequestMapping(value = "singleFileUpload.htm", method = RequestMethod.POST)        
+    public ResponseEntity<?> singleFileUpload( @RequestParam("file") MultipartFile file ) {
+
+        String fileName = file.getOriginalFilename();
         try {
-            // Get the file and save it somewhere
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            Files.write(path, bytes);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return"505";
-        }
-        return "200";
+          file.transferTo( new File("C:\\Users\\ISC_G\\OneDrive\\Alejandro\\Documentos\\NetBeansProjects\\concredito\\web\\resources\\files\\" + fileName));
+        } catch (Exception e) {
+          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } 
+        return ResponseEntity.ok("resources/files/" + fileName);
     }
 }
